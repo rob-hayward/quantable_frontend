@@ -1,0 +1,14 @@
+/*src/components/AuthenTech/RegistrationPage.css*/
+
+.modalTransitionWrapper {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInModal 0.5s forwards;
+}
+
+@keyframes fadeInModal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,18 @@
+:root {
+  /* Bootstrap's Dark Theme Variables */
+  --bs-dark: #000; /* Dark background */
+  --bs-dark-bg: #000; /* Dark background for components */
+  --bs-body-bg: var(--bs-dark-bg); /* Body background color */
+  --bs-body-color: #E0E0E0; /* Body text color */
+  --bs-primary: #0d6efd; /* Primary color - Adjust if you have a specific primary color */
+  --bs-error: #ff6666; /* Custom error color variable for your use cases */
+
+  /* Additional Custom Variables */
+  --color-background: var(--bs-dark-bg); /* Use Bootstrap variable for consistency */
+  --color-text: var(--bs-body-color); /* Use Bootstrap variable for consistency */
+  --color-error: var(--bs-error); /* Custom error color */
+  --color-hover-background: #E0E0E0; /* Hover background color */
+  --color-hover-text: #000; /* Hover text color */
+  --font-size-heading: 2rem; /* Heading font size */
+  --font-size-paragraph: 1rem; /* Paragraph font size */
+}

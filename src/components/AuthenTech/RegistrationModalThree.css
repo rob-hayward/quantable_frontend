@@ -1,0 +1,61 @@
+/*src/components/AuthenTech/RegistrationModalThree.css*/
+.modalContainerThree {
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #E0E0E0;
+  border-radius: 10px;
+  background-color: #000;
+  color: #E0E0E0;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 20vh;
+  position: relative;
+}
+
+.headingThree {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.descriptionThree {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/*.resendButton {*/
+/*  padding: 10px 20px;*/
+/*  background-color: transparent;*/
+/*  color: #E0E0E0;*/
+/*  border: 2px solid #E0E0E0;*/
+/*  border-radius: 25px;*/
+/*  font-size: 1rem;*/
+/*  font-weight: 500;*/
+/*  transition: background-color 0.3s, color 0.3s, border-color 0.3s;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*.resendButton:hover {*/
+/*  background-color: #E0E0E0;*/
+/*  color: #000;*/
+/*  border-color: transparent;*/
+/*}*/
+
+.modal-button {
+  width: 50%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the button */
+}
+
+.step-indicator {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 0.8rem;
+  color: #E0E0E0;
+}
+
+@media (max-width: 768px) {
+  .resendButton {
+    width: 90%;
+  }
+}

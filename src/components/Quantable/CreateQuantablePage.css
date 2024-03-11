@@ -1,0 +1,66 @@
+/* CreateQuantablePage.css */
+.create-quantable-container {
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #E0E0E0; /* Maintains consistency with modal styling */
+  border-radius: 10px;
+  background-color: #000;
+  color: #E0E0E0;
+  max-width: 500px;
+  margin: 2rem auto; /* Center the form with some margin */
+  position: relative;
+}
+
+.create-quantable-heading {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.create-quantable-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-discussion-input,
+.create-discussion-textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #E0E0E0;
+  background-color: #222;
+  color: #E0E0E0;
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.create-discussion-textarea {
+  height: 100px; /* Larger height for textarea */
+  resize: vertical; /* Allows vertical resizing */
+}
+
+.create-discussion-submit-button {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #E0E0E0;
+  border: 2px solid #E0E0E0;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
+  width: 50%;
+}
+
+.create-discussion-submit-button:hover {
+  background-color: #E0E0E0;
+  color: #000;
+  border-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .create-discussion-input,
+  .create-discussion-textarea,
+  .create-discussion-submit-button {
+    width: 90%;
+  }
+}

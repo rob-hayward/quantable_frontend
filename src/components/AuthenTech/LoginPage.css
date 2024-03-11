@@ -1,0 +1,64 @@
+/* src/components/AuthenTech/LoginPage.css */
+
+.loginContainer {
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #E0E0E0;
+  border-radius: 10px;
+  background-color: #000;
+  color: #E0E0E0;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 20vh;
+  position: relative;
+}
+
+.logoSmall {
+  max-width: 100px;
+  margin-bottom: 20px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginInput {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #E0E0E0;
+  background-color: #222;
+  color: #E0E0E0;
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.loginButton {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #E0E0E0;
+  border: 2px solid #E0E0E0;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+
+.loginButton:hover {
+  background-color: #E0E0E0;
+  color: #000;
+  border-color: transparent;
+}
+
+.loginError {
+  color: #ff6666;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .loginInput, .loginButton {
+    width: 90%;
+  }
+}

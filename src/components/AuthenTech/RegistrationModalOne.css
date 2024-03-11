@@ -1,0 +1,72 @@
+/*src/components/AuthenTech/RegistrationModalOne.css.css*/
+
+.modalContainer {
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #E0E0E0; /* Border color similar to buttons */
+  border-radius: 10px; /* Rounded corners */
+  background-color: #000; /* Dark background */
+  color: #E0E0E0; /* Light silver-ish color for text */
+  max-width: 500px; /* Maximum width */
+  margin: auto; /* Center the modal */
+  margin-top: 20vh; /* Spacing from top */
+  position: relative;
+}
+
+.heading {
+  font-size: 2rem; /* Larger font size for heading */
+  margin-bottom: 20px; /* Spacing below heading */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #E0E0E0; /* Border color */
+  background-color: #222; /* Slightly lighter than the main background */
+  color: #E0E0E0;
+  margin-bottom: 20px; /* Spacing below input */
+  width: 80%; /* Responsive width */
+}
+
+/*.submitButton {*/
+/*  !*padding: 10px 20px;*!*/
+/*  !*background-color: transparent;*!*/
+/*  !*color: #E0E0E0;*!*/
+/*  !*border: 2px solid #E0E0E0;*!*/
+/*  !*border-radius: 25px;*!*/
+/*  !*font-size: 1rem;*!*/
+/*  !*font-weight: 500;*!*/
+/*  !*transition: background-color 0.3s, color 0.3s, border-color 0.3s;*!*/
+/*  !*cursor: pointer;*!*/
+/*}*/
+
+/*.submitButton:hover {*/
+/*  !*background-color: #E0E0E0;*!*/
+/*  !*color: #000;*!*/
+/*  !*border-color: transparent;*!*/
+/*}*/
+
+.modal-button {
+  width: 50%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the button */
+}
+
+.step-indicator {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 0.8rem;
+  color: #E0E0E0;
+}
+
+@media (max-width: 768px) {
+  .input, .submitButton {
+    width: 90%; /* Increase width for smaller screens */
+  }
+}

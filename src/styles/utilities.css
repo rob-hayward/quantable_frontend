@@ -1,0 +1,60 @@
+/* src/styles/utilities.css */
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.transition-background-color {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.border-radius-5 {
+  border-radius: 5px;
+}
+
+.border-radius-10 {
+  border-radius: 10px;
+}
+
+.border-radius-25 {
+  border-radius: 25px;
+}
+
+.border-solid-e0 {
+  border: 2px solid #E0E0E0;
+}
+
+.background-transparent {
+  background-color: transparent;
+}
+
+.color-e0 {
+  color: #E0E0E0;
+}
+
+.color-000 {
+  color: #000;
+}

@@ -1,0 +1,64 @@
+/* Navbar.css */
+.navbar {
+  background-color: var(--bs-dark-bg); /* Use your dark theme background color */
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #555; /* Optional: adds a slight border for definition */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: var(--color-text); /* Ensures text color matches your theme */
+  text-decoration: none;
+}
+
+.navbar-brand img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar-toggler {
+  border: none;
+  background-color: transparent;
+  /* Adjust the toggler icon color for better visibility */
+  filter: invert(1);
+}
+
+.navbar-toggler:focus {
+  outline: none;
+}
+
+.dropdown-menu {
+  position: absolute;
+  /* Adjust positioning to left justify with the toggler */
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+  background-color: var(--bs-dark-bg); /* Match the dark theme background */
+  border: 1px solid #444; /* Slightly lighter border for visibility */
+  color: var(--color-text); /* Text color for dropdown items */
+}
+
+.dropdown-item {
+  color: var(--color-text);
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  background-color: #333; /* Darker background for hover/focus */
+  color: var(--color-hover-text); /* Lighter text color for contrast */
+}
+
+@media (max-width: 768px) {
+  /* Responsive adjustments */
+  .dropdown-menu {
+    /* Ensure dropdown does not go off-screen on smaller devices */
+    transform: translateX(0);
+    left: auto;
+    right: 0;
+  }
+}
+
+/* Optional: Add custom animations or styles as needed */

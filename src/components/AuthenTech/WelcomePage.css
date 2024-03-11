@@ -1,0 +1,98 @@
+/*src/components/AuthenTech/WelcomePage.css*/
+.welcome-page {
+  text-align: center;
+  padding: 20px;
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  max-width: 20vw; /* Responsive width */
+  margin-bottom: -30px; /* Reduced spacing below the logo */
+}
+
+h1 {
+  font-size: 4.5vw; /* Slightly larger font size */
+  font-weight: 700; /* Bolder text */
+  color: #E0E0E0; /* Base silver color */
+  text-shadow:
+    1px 1px 0 #fff, /* white shadow to the top-left */
+    -1px -1px 0 #666, /* darker shadow to the bottom-right */
+    1px -1px 0 #fff, /* white shadow to the top-right */
+    -1px 1px 0 #666; /* darker shadow to the bottom-left */
+  margin-bottom: 10px; /* Adjusted margin */
+}
+
+
+
+.paragraph-container {
+    text-align: center;
+    border: 2px solid black;/* #E0E0E0; Same color as the buttons */
+    padding: 15px;
+    border-radius: 10px; /* Optional, for rounded corners */
+    margin-top: 20px;
+    margin-bottom: 20px; /* Spacing below the container */
+}
+
+.paragraph-container ul {
+    list-style-type: none; /* Bullet points */
+    padding-left: 0px; /* Indentation for bullets */
+}
+
+.paragraph-container li {
+    margin-bottom: 10px; /* Spacing between list items */
+    font-size: 1.2vw; /* Adjust font size as needed */
+}
+
+
+p {
+  font-size: 1.2rem; /* Slightly smaller font size */
+  line-height: 1.5; /* Line height for better readability */
+  color: #E0E0E0; /* Font color similar to the button */
+  margin: 0; /* Remove default margin */
+}
+
+.auth-options {
+  display: flex;
+  justify-content: center; /* Align buttons horizontally */
+}
+
+
+/* Styling for buttons */
+.auth-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  padding: 10px 20px;
+  min-width: 120px; /* Ensuring equal width for both buttons */
+  background-color: transparent; /* Clear background for minimalism */
+  color: #E0E0E0; /* Light silver-ish color for text */
+  text-decoration: none; /* Removing text underline */
+  border: 2px solid #E0E0E0; /* Silver border */
+  border-radius: 25px; /* Rounded edges for a modern look */
+  font-size: 1rem;
+  font-weight: 500; /* Slightly bold text */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Hover effect for buttons */
+.auth-link:hover {
+  background-color: #E0E0E0; /* Silver background on hover */
+  color: #000; /* Black text on hover for contrast */
+  border-color: transparent; /* Border transitions to transparent */
+  text-decoration: none; /* Ensuring no underline on hover */
+}
+
+/* Responsive font size adjustment */
+@media (max-width: 768px) {
+  .auth-link {
+    font-size: 0.9rem; /* Smaller font size on smaller screens */
+    min-width: 100px; /* Adjusting minimum width for smaller screens */
+  }
+}
+

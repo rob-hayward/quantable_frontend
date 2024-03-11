@@ -1,0 +1,82 @@
+/* src/styles/global.css */
+@import 'utilities.css';
+@import 'themes.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Roboto', sans-serif;
+}
+
+input, button {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  color: #E0E0E0; /* Light silver-ish color for text */
+  border: 2px solid #E0E0E0; /* Silver border */
+  border-radius: 25px; /* Rounded edges for a modern look */
+  padding: 5px 10px; /* Adjusted padding for consistency */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 20vh;
+  position: relative;
+  text-align: center;
+  border: var(--border-solid-e0);
+  border-radius: var(--border-radius-10);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Global Button Style with minimum width */
+.button {
+  cursor: pointer;
+  background-color: transparent;
+  color: #E0E0E0; /* Matching the light color for text */
+  border: 2px solid #E0E0E0; /* Consistent silver border */
+  border-radius: 25px; /* Keeping the rounded edges */
+  padding: 5px 10px; /* Standard padding for buttons */
+  min-width: 120px; /* Ensuring a minimum width for all buttons */
+  text-align: center; /* Ensure text is centered within the button */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button:hover {
+  background-color: #E0E0E0; /* Silver background on hover */
+  color: #000; /* Contrast with black text on hover */
+  border-color: transparent; /* Transition border to transparent */
+}
+
+@media (max-width: 768px) {
+  .button {
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+}
+
+.error-text {
+  color: var(--color-error);
+}
+
+.button-spacing {
+    margin-right: 10px;
+}
+
+.button-spacing:last-child {
+    margin-right: 0;
+}
