@@ -10,20 +10,42 @@ const QuantableDetailPage = () => {
     const [votes, setVotes] = useState([]);
     const [newVoteValue, setNewVoteValue] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [selectedUnit, setSelectedUnit] = useState('');
+    const [units, setUnits] = useState([]); // Add units state
 
     const fetchQuantable = useCallback(async () => {
         try {
             const response = await axiosInstance.get(`/quantables/detail/${quantableId}/`);
             setQuantable(response.data);
+            setSelectedUnit(response.data.unit); // Set the default selected unit
+            return response.data; // Return the fetched quantable data
         } catch (error) {
             console.error("Error fetching quantable details:", error);
             setErrorMessage('Error fetching quantable details.');
+            return null; // Return null in case of an error
         }
     }, [quantableId]);
 
+    const fetchUnits = useCallback(async (category) => {
+        try {
+            const response = await axiosInstance.get(`/units/${category}/`);
+            return response.data;
+        } catch (error) {
+            console.error("Error fetching units:", error);
+            return [];
+        }
+    }, []);
+
     useEffect(() => {
-        fetchQuantable();
-    }, [fetchQuantable]);
+        const fetchData = async () => {
+            const fetchedQuantable = await fetchQuantable();
+            if (fetchedQuantable) {
+                const fetchedUnits = await fetchUnits(fetchedQuantable.category);
+                setUnits(fetchedUnits); // Set the units state
+            }
+        };
+        fetchData();
+    }, [quantableId, fetchQuantable, fetchUnits]);
 
     const handleNewVoteChange = (e) => {
         setNewVoteValue(e.target.value);
@@ -39,6 +61,7 @@ const QuantableDetailPage = () => {
             const response = await axiosInstance.post(`/votes/create/`, {
                 quantable: quantableId,
                 value: newVoteValue,
+                preferred_unit: selectedUnit, // Include the selected unit in the request data
             });
             setVotes([...votes, response.data]);
             setNewVoteValue('');
@@ -50,14 +73,40 @@ const QuantableDetailPage = () => {
     };
 
     return (
-        <div>
-            <h2 className="page-title">Quantable Detail Page</h2>
-            <div className="quantable-detail-container">
+    <div>
+        <h2 className="page-title">Quantable Detail Page</h2>
+        <div className="quantable-detail-container">
+            {quantable && (
+                <div className="quantable-content">
+                    <h4>Category: {quantable.category}</h4>
+                    <h4>Question: {quantable.question}</h4>
+                    <p>Created by: {quantable.creator}</p>
+                    <p>Total Votes: {quantable.vote_count}</p>
+                    <p>Average Vote: {quantable.vote_average}</p>
+                    {quantable.vote_values && (
+                        <ul>
+                            {quantable.vote_values.map((vote, index) => (
+                                <li key={index}>{vote}</li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
+                )}
+
                 {quantable && (
-                    <div className="quantable-content">
-                        <h4>Category: {quantable.category}</h4>
-                        <h4>Question: {quantable.question}</h4>
-                        <p>Created by: {quantable.creator}</p>
+                    <div className="unit-selector">
+                        <label htmlFor="unit">Select Unit:</label>
+                        <select
+                            id="unit"
+                            value={selectedUnit}
+                            onChange={(e) => setSelectedUnit(e.target.value)}
+                        >
+                            {units.map((unit) => (
+                                <option key={unit.value} value={unit.value}>
+                                    {unit.name}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                 )}
 
