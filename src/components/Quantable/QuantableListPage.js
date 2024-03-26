@@ -32,7 +32,7 @@ const QuantableListPage = () => {
 
     return (
         <div className="quantable-list-container">
-            <h2 className="page-title">Quantable List Page</h2>
+            <h2 className="page-title-l">Quantable List Page</h2>
             <div className="sort-selector">
                 <label htmlFor="sort">Sort quantables by:</label>
                 <select id="sort" onChange={handleSortChange} value={sort}>

@@ -1,7 +1,8 @@
 /* src/components/Quantable/QuantableListPage.css */
 
-.page-title {
+.page-title-l{
     text-align: center;
+    margin-top: -10px;
     margin-bottom: 20px;
 }
 

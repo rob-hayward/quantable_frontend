@@ -186,6 +186,10 @@ const QuantableDetailPage = () => {
                                 </form>
                                 {errorMessage && <p className="error-message">{errorMessage}</p>}
                             </div>
+
+                            {quantable && quantable.ninety_percent_vote_range && (
+                                <p>{quantable.ninety_percent_vote_range.statement}</p>
+                            )}
                         </div>
                     </div>
 
