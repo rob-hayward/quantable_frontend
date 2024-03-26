@@ -7,22 +7,32 @@ import './WelcomePage.css';
 
 const WelcomePage = () => {
   return (
-      <div className="welcome-page">
-          {/* Logo Image */}
-          <img src={logo} alt="Discussable Logo" className="logo"/>
+    <div className="welcome-page">
+      {/* Logo Image */}
+      <img src={logo} alt="Quantable Logo" className="logo" />
 
-          <h1>Discussable</h1>
-          <div className="paragraph-container">
-              <ul>
-                  <li>Freedom to Speak. Freedom to Listen</li>
-                  <li>Community Content, Personally Controlled.</li>
-              </ul>
-              <div className="auth-options">
-                  <Link to="/register" className="auth-link">Register</Link>
-                  <Link to="/login" className="auth-link">Login</Link>
-              </div>
-          </div>
+        <div className="statement-container">
+            <span className="fixed-text">How much is</span>
+            <div className="scrolling-options">
+                <span>too much</span>
+                <span>enough</span>
+                <span>too few</span>
+                <span>excessive</span>
+                <span>sufficient</span>
+                <span>deprived</span>
+                {/* Add more options as needed */}
+            </div>
+            <span className="fixed-text">?</span>
+        </div>
+
+        <div className="paragraph-container">
+                <h4>Quantify Your Beliefs, With Quantable</h4>
+        <div className="auth-options">
+          <Link to="/register" className="auth-link">Register</Link>
+          <Link to="/login" className="auth-link">Login</Link>
+        </div>
       </div>
+    </div>
   );
 };
 

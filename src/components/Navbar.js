@@ -32,9 +32,9 @@ const Navbar = () => {
                 {isLoggedIn ? (
                     <>
                         <li><Link className="dropdown-item" to="/dashboard">Dashboard</Link></li>
-                        <li><Link className="dropdown-item" to="/discussions">Discussions</Link></li>
-                        <li><Link className="dropdown-item" to="/create-discussion">Create New Discussion</Link></li>
-                        <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
+                        <li><Link className="dropdown-item" to="/quantables">Quantable List Page</Link></li>
+                        <li><Link className="dropdown-item" to="/create-quantable">Create New Quantable</Link></li>
+                        {/*<li><Link className="dropdown-item" to="/profile">Profile</Link></li>*/}
                         {/*<li><Link to="/chart-test">Chart Test</Link></li>*/}
                         <li><button className="dropdown-item" onClick={handleLogout}>Logout</button></li>
                     </>

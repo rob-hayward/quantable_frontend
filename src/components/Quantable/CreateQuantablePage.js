@@ -93,62 +93,62 @@ const CreateQuantablePage = () => {
       <h2 className="create-quantable-heading">Create a New Quantable</h2>
       <form onSubmit={handleSubmit} className="create-quantable-form">
         <select
-          className="create-quantable-select"
-          id="category"
-          value={selectedCategory}
-          onChange={handleCategoryChange}
-          required
+            className="create-quantable-select"
+            id="category"
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+            required
         >
           <option value="">Select a category</option>
           {categories.map((category) => (
-            <option key={category.value} value={category.value}>
-              {category.name}
-            </option>
+              <option key={category.value} value={category.value}>
+                {category.name}
+              </option>
           ))}
         </select>
         <div>
-          {/*<label htmlFor="default-unit">Default Unit:</label>*/}
           <select
-            id="default-unit"
-            value={selectedDefaultUnit}
-            onChange={handleDefaultUnitChange}
-            required
-            disabled={!selectedCategory}
+              id="default-unit"
+              className="create-quantable-default-unit" // Add this class
+              value={selectedDefaultUnit}
+              onChange={handleDefaultUnitChange}
+              required
+              disabled={!selectedCategory}
           >
             <option value="">Select a default unit</option>
             {units.map((unit) => (
-              <option key={unit.value} value={unit.value}>
-                {unit.name}
-              </option>
+                <option key={unit.value} value={unit.value}>
+                  {unit.name}
+                </option>
             ))}
           </select>
         </div>
         {selectedDefaultUnit && (
-          <div>
-            <p className="alternative-units-hint">Please select any alternative unit options:</p>
-            <div className="alternative-units-list">
-              {availableUnits.map((unit) => (
-                <div key={unit.value}>
-                  <input
-                    type="checkbox"
-                    id={`unit-${unit.value}`}
-                    value={unit.value}
-                    checked={selectedUnits.includes(unit.value)}
-                    onChange={handleUnitChange}
-                  />
-                  <label htmlFor={`unit-${unit.value}`}>{unit.name}</label>
-                </div>
-              ))}
+            <div>
+              <p className="alternative-units-hint">Please select any alternative unit options:</p>
+              <div className="alternative-units-list">
+                {availableUnits.map((unit) => (
+                    <div key={unit.value}>
+                      <input
+                          type="checkbox"
+                          id={`unit-${unit.value}`}
+                          value={unit.value}
+                          checked={selectedUnits.includes(unit.value)}
+                          onChange={handleUnitChange}
+                      />
+                      <label htmlFor={`unit-${unit.value}`}>{unit.name}</label>
+                    </div>
+                ))}
+              </div>
             </div>
-          </div>
         )}
         <textarea
-          className="create-quantable-textarea"
-          id="questionContent"
-          placeholder="Question"
-          value={questionContent}
-          onChange={(e) => setQuestionContent(e.target.value)}
-          required
+            className="create-quantable-textarea"
+            id="questionContent"
+            placeholder="Question"
+            value={questionContent}
+            onChange={(e) => setQuestionContent(e.target.value)}
+            required
         ></textarea>
         <button type="submit" className="create-quantable-submit-button">
           Create Quantable

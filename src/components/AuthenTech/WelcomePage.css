@@ -1,8 +1,9 @@
-/*src/components/AuthenTech/WelcomePage.css*/
+/* src/components/AuthenTech/WelcomePage.css */
+
 .welcome-page {
   text-align: center;
   padding: 20px;
-  height: 100vh; /* Full height of the viewport */
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,89 +11,112 @@
 }
 
 .logo {
-  max-width: 20vw; /* Responsive width */
-  margin-bottom: -30px; /* Reduced spacing below the logo */
+  max-width: 20vw;
+  margin-bottom: 20px;
 }
 
-h1 {
-  font-size: 4.5vw; /* Slightly larger font size */
-  font-weight: 700; /* Bolder text */
-  color: #E0E0E0; /* Base silver color */
-  text-shadow:
-    1px 1px 0 #fff, /* white shadow to the top-left */
-    -1px -1px 0 #666, /* darker shadow to the bottom-right */
-    1px -1px 0 #fff, /* white shadow to the top-right */
-    -1px 1px 0 #666; /* darker shadow to the bottom-left */
-  margin-bottom: 10px; /* Adjusted margin */
+.statement-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  height: 50px;
+  overflow: hidden;
+  margin-bottom: -40px;
 }
 
+.fixed-text {
+  font-size: 24px;
+  margin-right: 10px;
+}
 
+.scrolling-options {
+  display: inline-block;
+  height: 100%;
+  overflow: hidden;
+  vertical-align: top;
+  line-height: 1.2;
+}
+
+.scrolling-options span {
+  display: block;
+  font-size: 24px;
+  padding: 7px 0;
+  animation: scroll 10s infinite;
+}
+
+@keyframes scroll {
+  0%, 16.66% {
+    transform: translateY(0);
+  }
+  16.67%, 33.33% {
+    transform: translateY(-100%);
+  }
+  33.34%, 50% {
+    transform: translateY(-200%);
+  }
+  50.01%, 66.66% {
+    transform: translateY(-300%);
+  }
+  66.67%, 83.33% {
+    transform: translateY(-400%);
+  }
+  83.34%, 100% {
+    transform: translateY(-500%);
+  }
+}
 
 .paragraph-container {
-    text-align: center;
-    border: 2px solid black;/* #E0E0E0; Same color as the buttons */
-    padding: 15px;
-    border-radius: 10px; /* Optional, for rounded corners */
-    margin-top: 20px;
-    margin-bottom: 20px; /* Spacing below the container */
+  text-align: center;
+  border: 2px solid black;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .paragraph-container ul {
-    list-style-type: none; /* Bullet points */
-    padding-left: 0px; /* Indentation for bullets */
+  list-style-type: none;
+  padding-left: 0px;
 }
 
 .paragraph-container li {
-    margin-bottom: 10px; /* Spacing between list items */
-    font-size: 1.2vw; /* Adjust font size as needed */
-}
-
-
-p {
-  font-size: 1.2rem; /* Slightly smaller font size */
-  line-height: 1.5; /* Line height for better readability */
-  color: #E0E0E0; /* Font color similar to the button */
-  margin: 0; /* Remove default margin */
+  margin-bottom: 20px;
+  font-size: 1.2vw;
 }
 
 .auth-options {
   display: flex;
-  justify-content: center; /* Align buttons horizontally */
+  justify-content: center;
 }
 
-
-/* Styling for buttons */
 .auth-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin: 0 10px;
   padding: 10px 20px;
-  min-width: 120px; /* Ensuring equal width for both buttons */
-  background-color: transparent; /* Clear background for minimalism */
-  color: #E0E0E0; /* Light silver-ish color for text */
-  text-decoration: none; /* Removing text underline */
-  border: 2px solid #E0E0E0; /* Silver border */
-  border-radius: 25px; /* Rounded edges for a modern look */
+  min-width: 120px;
+  background-color: transparent;
+  color: #E0E0E0;
+  text-decoration: none;
+  border: 2px solid #E0E0E0;
+  border-radius: 25px;
   font-size: 1rem;
-  font-weight: 500; /* Slightly bold text */
+  font-weight: 500;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  cursor: pointer; /* Pointer cursor on hover */
+  cursor: pointer;
 }
 
-/* Hover effect for buttons */
 .auth-link:hover {
-  background-color: #E0E0E0; /* Silver background on hover */
-  color: #000; /* Black text on hover for contrast */
-  border-color: transparent; /* Border transitions to transparent */
-  text-decoration: none; /* Ensuring no underline on hover */
+  background-color: #E0E0E0;
+  color: #000;
+  border-color: transparent;
+  text-decoration: none;
 }
 
-/* Responsive font size adjustment */
 @media (max-width: 768px) {
   .auth-link {
-    font-size: 0.9rem; /* Smaller font size on smaller screens */
-    min-width: 100px; /* Adjusting minimum width for smaller screens */
+    font-size: 0.9rem;
+    min-width: 100px;
   }
 }
-

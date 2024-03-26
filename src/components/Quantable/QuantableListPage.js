@@ -38,7 +38,6 @@ const QuantableListPage = () => {
                 <select id="sort" onChange={handleSortChange} value={sort}>
                     <option value="newest">Newest</option>
                     <option value="oldest">Oldest</option>
-                    <option value="popularity">Most Popular</option>
                     <option value="total_votes">Total Votes</option>
                 </select>
             </div>

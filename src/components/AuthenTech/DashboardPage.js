@@ -35,7 +35,7 @@ const DashboardPage = () => {
           {userProfile &&
               <p>Welcome to Quantable {userProfile.preferred_name}!</p>} {/* Display user's preferred name */}
           <p>How many is too many? How few is too few?</p>
-          <p>Defining excess, defining deprivation.</p>
+          <p>Defining Excess. Defining Deprivation.</p>
           <div className="dashboard-options">
               <Link to="/create-quantable" className="dashboard-link">Create Quantable</Link>
               <Link to="/quantables" className="dashboard-link">View Quantables</Link>

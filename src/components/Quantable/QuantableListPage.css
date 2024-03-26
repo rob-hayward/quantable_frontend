@@ -1,5 +1,10 @@
 /* src/components/Quantable/QuantableListPage.css */
 
+.page-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .quantable-list-container {
   padding: 20px;
   border: var(--border-solid-e0);
@@ -10,9 +15,9 @@
   margin: 40px auto;
 }
 
-.quantable {
+.quantable-item {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 20px;
   border: var(--border-solid-e0);
@@ -28,18 +33,18 @@
   gap: 10px;
 }
 
-.quantable h3 {
+.quantable-item h3 {
   color: #E0E0E0;
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s;
 }
 
-.quantable h3:hover {
+.quantable-item h3:hover {
   color: #FFF;
 }
 
-.quantable p {
+.quantable-item p {
   margin: 5px 0;
 }
 
@@ -62,8 +67,14 @@
   cursor: pointer;
 }
 
+.density-plot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
-  .quantable {
+  .quantable-item {
     grid-template-columns: 1fr;
   }
 

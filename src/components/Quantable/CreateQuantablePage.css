@@ -16,15 +16,15 @@
   margin-bottom: 20px;
 }
 
-.create-quantable-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+/*.create-quantable-form {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  align-items: center;*/
+/*}*/
 
 .create-quantable-select,
-.create-quantable-textarea,
-.create-quantable-form select {
+.create-quantable-default-unit,
+.create-quantable-textarea {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #E0E0E0;
@@ -33,6 +33,18 @@
   margin-bottom: 20px;
   width: 100%;
   max-width: 400px;
+}
+
+.create-quantable-form .create-quantable-default-unit {
+  width: 100% !important;
+  max-width: 400px !important;
+  box-sizing: border-box !important;
+  margin-bottom: 20px !important;
+  padding: 10px !important;
+  border-radius: 5px !important;
+  border: 1px solid #E0E0E0 !important;
+  background-color: #222 !important;
+  color: #E0E0E0 !important;
 }
 
 .create-quantable-textarea {
@@ -95,9 +107,9 @@
 
 @media (max-width: 768px) {
   .create-quantable-select,
+  .create-quantable-default-unit,
   .create-quantable-textarea,
-  .create-quantable-submit-button,
-  .create-quantable-form select {
-    width: 90%;
+  .create-quantable-submit-button {
+    width: 90% !important;
   }
 }

@@ -148,42 +148,44 @@ const QuantableDetailPage = () => {
                     </div>
                 )}
 
-                <div className="quantable-content">
-                    <div className="voting-section">
-                        {quantable && (
-                            <div className="vote-data">
-                                <p>Total Votes: {quantable.vote_count}</p>
-                                <p>Your Current Vote: {quantable.user_vote !== null ? quantable.user_vote : 'N/A'} {selectedUnit}</p>
-                            </div>
-                        )}
+                <div className="quantable-detail-content">
+                    <div className="quantable-info">
+                        <div className="voting-section">
+                            {quantable && (
+                                <div className="vote-data">
+                                    <p>Total Votes: {quantable.vote_count}</p>
+                                    <p>Your Current Vote: {quantable.user_vote !== null ? quantable.user_vote : 'N/A'} {selectedUnit}</p>
+                                </div>
+                            )}
 
-                        {quantable && (
-                            <div className="unit-selector">
-                                <label htmlFor="unit">Select Unit:</label>
-                                <select id="unit" value={selectedUnit} onChange={handleUnitChange}>
-                                    {units.map((unit) => (
-                                        <option key={unit.value} value={unit.value}>
-                                            {unit.name}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        )}
+                            {quantable && (
+                                <div className="unit-selector">
+                                    <label htmlFor="unit">Select Unit:</label>
+                                    <select id="unit" value={selectedUnit} onChange={handleUnitChange}>
+                                        {units.map((unit) => (
+                                            <option key={unit.value} value={unit.value}>
+                                                {unit.name}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                            )}
 
-                        <div className="new-vote-container">
-                            <form onSubmit={handleVoteSubmit} className="new-vote-form">
-                                <input
-                                    type="number"
-                                    value={newVoteValue}
-                                    onChange={handleNewVoteChange}
-                                    placeholder="Enter your vote value"
-                                    required
-                                />
-                                <button className="button vote" type="submit">
-                                    {userVote ? 'Update Vote' : 'Submit Vote'}
-                                </button>
-                            </form>
-                            {errorMessage && <p className="error-message">{errorMessage}</p>}
+                            <div className="new-vote-container">
+                                <form onSubmit={handleVoteSubmit} className="new-vote-form">
+                                    <input
+                                        type="number"
+                                        value={newVoteValue}
+                                        onChange={handleNewVoteChange}
+                                        placeholder="Enter your vote value"
+                                        required
+                                    />
+                                    <button className="button vote" type="submit">
+                                        {userVote ? 'Update Vote' : 'Submit Vote'}
+                                    </button>
+                                </form>
+                                {errorMessage && <p className="error-message">{errorMessage}</p>}
+                            </div>
                         </div>
                     </div>
 

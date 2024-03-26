@@ -1,65 +1,61 @@
-/* src/components/Quantable/QuantableListPage.css */
+/* src/components/Quantable/QuantableDetailPage.css */
 
-.quantable-list-container {
+.quantable-detail-container {
+    max-width: 960px;
+    margin: 40px auto;
     padding: 20px;
     border: var(--border-solid-e0);
     border-radius: var(--border-radius-10);
     background-color: var(--color-background);
     color: var(--color-text);
-    max-width: 960px;
-    margin: 40px auto;
 }
 
-.quantable-item {
+.quantable-header {
+    margin-bottom: 20px;
+}
+
+.quantable-detail-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    padding: 20px;
-    border: var(--border-solid-e0);
-    border-radius: var(--border-radius-10);
-    background-color: var(--color-background);
-    color: var(--color-text);
-    margin-bottom: 20px;
 }
 
-.quantable-content {
+.quantable-info {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
-.quantable h3 {
-    color: #E0E0E0;
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 0.3s;
+.voting-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.quantable h3:hover {
-    color: #FFF;
-}
-
-.quantable p {
+.vote-data p {
     margin: 5px 0;
 }
 
-.sort-selector {
-    margin-bottom: 20px;
+.unit-selector {
+    margin-bottom: 10px;
 }
 
-.sort-selector label,
-.sort-selector select {
-    color: var(--color-text);
-    font-size: 1rem;
+.new-vote-container {
+    margin-top: 20px;
 }
 
-.sort-selector select {
-    padding: 5px 10px;
-    border-radius: var(--border-radius-10);
-    background-color: var(--color-background-lighter);
-    border: 1px solid var(--color-border);
-    color: var(--color-text);
-    cursor: pointer;
+.new-vote-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.new-vote-form input {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: var(--border-radius-5);
+    border: 1px solid #ccc;
 }
 
 .density-plot-container {
@@ -68,19 +64,3 @@
     align-items: center;
 }
 
-@media (max-width: 768px) {
-    .quantable-item {
-        grid-template-columns: 1fr;
-    }
-
-    .sort-selector {
-        position: static;
-        margin: 10px auto;
-        display: block;
-    }
-
-    .quantable-list-container {
-        width: 90%;
-        margin: 20px auto;
-    }
-}
