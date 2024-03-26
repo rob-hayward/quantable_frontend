@@ -1,4 +1,6 @@
-.discussions-list-container {
+/* src/components/Quantable/QuantableListPage.css */
+
+.quantable-list-container {
   padding: 20px;
   border: var(--border-solid-e0);
   border-radius: var(--border-radius-10);
@@ -8,44 +10,49 @@
   margin: 40px auto;
 }
 
-.discussion {
+.quantable {
   display: grid;
-  grid-template-columns: 3fr 2fr; /* Match the layout from the detail page */
+  grid-template-columns: 1fr;
   gap: 20px;
   padding: 20px;
   border: var(--border-solid-e0);
   border-radius: var(--border-radius-10);
   background-color: var(--color-background);
   color: var(--color-text);
-  margin-bottom: 20px; /* Space between discussion entries */
+  margin-bottom: 20px;
 }
 
-.discussion-content {
-  border-right: 2px solid #333; /* Visual divider, similar to the detail page */
-  padding-right: 20px;
+.quantable-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.discussion h3, .link {
+.quantable h3 {
   color: #E0E0E0;
-  text-decoration: none; /* Removes underlining from links */
+  text-decoration: none;
   cursor: pointer;
   transition: color 0.3s;
 }
 
-.discussion h3:hover, .link:hover {
-  color: #FFF; /* Ensure hover effect is visible */
+.quantable h3:hover {
+  color: #FFF;
 }
 
-.discussion p {
+.quantable p {
   margin: 5px 0;
 }
 
-.sort-selector label, .sort-selector select {
-  color: var(--color-text); /* Adjust as per your theme */
-  font-size: 1rem; /* Adjust as needed */
+.sort-selector {
+  margin-bottom: 20px;
 }
 
-/* Adjustments to select dropdown to match the site's style */
+.sort-selector label,
+.sort-selector select {
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
 .sort-selector select {
   padding: 5px 10px;
   border-radius: var(--border-radius-10);
@@ -56,22 +63,18 @@
 }
 
 @media (max-width: 768px) {
-  .discussion {
-    grid-template-columns: 1fr; /* Stack components on smaller screens */
-    }
-  .sort-selector {
-    position: static; /* Adjust for mobile responsiveness */
-    margin: 10px auto;
-    display: block; /* Adjust as per your mobile design */
+  .quantable {
+    grid-template-columns: 1fr;
   }
-  .discussions-list-container {
+
+  .sort-selector {
+    position: static;
+    margin: 10px auto;
+    display: block;
+  }
+
+  .quantable-list-container {
     width: 90%;
     margin: 20px auto;
   }
-  .discussion-content, .pie-chart-container {
-    border: none;
-    padding-right: 0;
-  }
 }
-
-

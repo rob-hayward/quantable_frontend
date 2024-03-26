@@ -16,6 +16,7 @@ import EmailVerification from './components/AuthenTech/EmailVerification';
 import CreateQuantablePage from './components/Quantable/CreateQuantablePage';
 import QuantableListPage from './components/Quantable/QuantableListPage';
 import QuantableDetailPage from './components/Quantable/QuantableDetailPage';
+// import ChartTestPage from './components/Quantable/ChartTestPage';
 import { AuthProvider } from './contexts/AuthContext';
 import { UserProvider } from './contexts/UserContext';
 
@@ -36,6 +37,7 @@ function App() {
                   <Route path="/create-quantable" element={<CreateQuantablePage/>}/>
                   <Route path="/quantables" element={<QuantableListPage/>}/>
                   <Route path="/quantables/:quantableId" element={<QuantableDetailPage />} />
+                  {/*<Route path="/chart-test" element={<ChartTestPage />} />*/}
               </Routes>
           </Router>
         </UserProvider>

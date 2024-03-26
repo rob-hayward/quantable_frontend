@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import axiosInstance from '../../api/axiosConfig';
 import { Link } from 'react-router-dom';
-// import BellCurve from '../Visualization/BellCurve';
+import DensityPlot from '../Visualization/DensityPlot';
 import './QuantableListPage.css';
 
 const QuantableListPage = () => {
@@ -42,18 +42,25 @@ const QuantableListPage = () => {
                     <option value="total_votes">Total Votes</option>
                 </select>
             </div>
+
             {quantables.map((quantable) => (
-                <div key={quantable.id} className="quantable">
+                <div key={quantable.id} className="quantable-item">
                     <div className="quantable-content">
-                        <p>Category: {quantable.category}</p>
                         <Link to={`/quantables/${quantable.id}`}>
                             <h3>Question: {quantable.question}</h3>
                         </Link>
-                        <p>By: {quantable.creator}</p>
+                        <p>By: {quantable.creator_name}</p>
                         <Link to={`/quantables/${quantable.id}`} className="button">View Details</Link>
                     </div>
-                    <div className="quantable-visualization">
-                        {/*<BellCurve data={quantable.vote_data_for_d3} />*/}
+                    <div className="density-plot-container">
+                        <DensityPlot
+                            data={quantable.freedman_diaconis_bins}
+                            mean={quantable.vote_average}
+                            stdDev={quantable.vote_stddev}
+                            xLabel={`${quantable.category} (${quantable.preferred_unit || quantable.default_unit})`}
+                            yLabel="Probability Density"
+                            userVote={quantable.user_vote !== null ? parseFloat(quantable.user_vote) : null}
+                        />
                     </div>
                 </div>
             ))}

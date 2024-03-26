@@ -2,12 +2,12 @@
 .create-quantable-container {
   text-align: center;
   padding: 20px;
-  border: 2px solid #E0E0E0; /* Maintains consistency with modal styling */
+  border: 2px solid #E0E0E0;
   border-radius: 10px;
   background-color: #000;
   color: #E0E0E0;
   max-width: 500px;
-  margin: 2rem auto; /* Center the form with some margin */
+  margin: 2rem auto;
   position: relative;
 }
 
@@ -22,23 +22,25 @@
   align-items: center;
 }
 
-.create-discussion-input,
-.create-discussion-textarea {
+.create-quantable-select,
+.create-quantable-textarea,
+.create-quantable-form select {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #E0E0E0;
   background-color: #222;
   color: #E0E0E0;
   margin-bottom: 20px;
-  width: 80%;
+  width: 100%;
+  max-width: 400px;
 }
 
-.create-discussion-textarea {
-  height: 100px; /* Larger height for textarea */
-  resize: vertical; /* Allows vertical resizing */
+.create-quantable-textarea {
+  height: 100px;
+  resize: vertical;
 }
 
-.create-discussion-submit-button {
+.create-quantable-submit-button {
   padding: 10px 20px;
   background-color: transparent;
   color: #E0E0E0;
@@ -51,16 +53,51 @@
   width: 50%;
 }
 
-.create-discussion-submit-button:hover {
+.create-quantable-submit-button:hover {
   background-color: #E0E0E0;
   color: #000;
   border-color: transparent;
 }
 
+.create-quantable-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.create-quantable-form input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.create-quantable-form .error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.alternative-units-hint {
+  margin-bottom: 10px;
+  font-style: italic;
+  color: #888;
+}
+
+.alternative-units-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.alternative-units-list div {
+  display: flex;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
-  .create-discussion-input,
-  .create-discussion-textarea,
-  .create-discussion-submit-button {
+  .create-quantable-select,
+  .create-quantable-textarea,
+  .create-quantable-submit-button,
+  .create-quantable-form select {
     width: 90%;
   }
 }

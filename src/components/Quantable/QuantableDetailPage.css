@@ -1,118 +1,86 @@
-/*src/components/Quantable/QuantableDetailPage.css*/
+/* src/components/Quantable/QuantableListPage.css */
 
-.page-title {
-  text-align: center; /* Centers the text */
-  width: 100%; /* Ensures the element spans the full width of its container */
-  margin-top: 20px; /* Adds space above the title, moving it down */
+.quantable-list-container {
+    padding: 20px;
+    border: var(--border-solid-e0);
+    border-radius: var(--border-radius-10);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    max-width: 960px;
+    margin: 40px auto;
 }
 
-.discussion-detail-container, .comment-container {
-  display: grid;
-  grid-template-columns: 3fr 2fr; /* Adjust this to match the layout */
-  gap: 20px; /* Space between columns */
-  padding: 20px;
-  border: var(--border-solid-e0);
-  border-radius: var(--border-radius-10);
-  background-color: var(--color-background);
-  color: var(--color-text);
-  max-width: 960px;
-  margin: 40px auto;
+.quantable-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    border: var(--border-solid-e0);
+    border-radius: var(--border-radius-10);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    margin-bottom: 20px;
 }
 
-.discussion-content, .comment-content {
-  border-right: 2px solid #333; /* Visual divider */
-  padding-right: 20px; /* Space before the divider */
+.quantable-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.vote-and-chart, .comment-voting {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 20px;
+.quantable h3 {
+    color: #E0E0E0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-/* Aligning buttons within the flex container */
-.vote-buttons, .vote-buttons-comment {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-end; /* Align buttons to the right */
+.quantable h3:hover {
+    color: #FFF;
 }
 
-
-/*.pie-chart-container {*/
-/*  flex: 1; !* Allows the pie chart container to fill available space *!*/
-/*  display: flex;*/
-/*  justify-content: center; !* Center pie chart horizontally *!*/
-/*  align-items: center; !* Center pie chart vertically *!*/
-/*  min-width: 150px; !* Minimum width of the pie chart *!*/
-/*  min-height: 150px; !* Minimum height, adjust as needed *!*/
-/*}*/
-
-/* Ensure the SVG within the pie-chart-container fills it */
-/*.pie-chart-container svg {*/
-/*  width: 100%;*/
-/*  height: 100%;*/
-/*}*/
-
-/*.word-piechart {*/
-/*  width: 66%; !* Use the full width of the parent container *!*/
-/*  height: 200px; !* Adjust based on your design needs *!*/
-/*  !* Ensure the container has a size before the chart is drawn *!*/
-/*}*/
-
-.new-comment-container {
-  padding: 20px;
-  border: var(--border-solid-e0);
-  border-radius: var(--border-radius-10);
-  background-color: var(--color-background);
-  color: var(--color-text);
-  max-width: 960px;
-  margin: 40px auto;
-  display: flex;
-  flex-direction: column;
+.quantable p {
+    margin: 5px 0;
 }
 
-.new-comment-form {
-  display: flex;
-  gap: 10px; /* Adjust the gap between elements as needed */
-  align-items: center; /* Align items vertically */
+.sort-selector {
+    margin-bottom: 20px;
 }
 
-.new-comment-form textarea {
-  flex-grow: 1; /* Let the textarea fill the available horizontal space */
-  margin-right: 10px; /* Ensure some space between the textarea and the button */
-  padding: 10px; /* Adjust padding for visual appeal */
-  border-radius: var(--border-radius-5); /* Match your site's border radius */
-  border: 1px solid #ccc; /* A subtle border, adjust as needed */
-}
-
-.hidden-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Adjust content distribution */
-  position: relative; /* Needed for absolute positioning of the pseudo-elements */
-  width: 100%; /* Ensure it spans the full width */
-  padding: 10px 50px; /* Increase padding to shorten the lines */
-}
-
-/* Ensure there's enough spacing around the button and text to prevent the lines from overlapping */
-.hidden-content button {
-  margin-left: 10px; /* Adjust spacing between text and button */
-}
-
-.sort-selector label, .sort-selector select {
-  color: var(--color-text); /* Adjust as per your theme */
-  font-size: 1rem; /* Adjust as needed */
-}
-
-/* Adjustments to select dropdown to match the site's style */
+.sort-selector label,
 .sort-selector select {
-  padding: 5px 10px;
-  border-radius: var(--border-radius-10);
-  background-color: var(--color-background-lighter);
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-  cursor: pointer;
+    color: var(--color-text);
+    font-size: 1rem;
+}
+
+.sort-selector select {
+    padding: 5px 10px;
+    border-radius: var(--border-radius-10);
+    background-color: var(--color-background-lighter);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.density-plot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .quantable-item {
+        grid-template-columns: 1fr;
+    }
+
+    .sort-selector {
+        position: static;
+        margin: 10px auto;
+        display: block;
+    }
+
+    .quantable-list-container {
+        width: 90%;
+        margin: 20px auto;
+    }
 }
