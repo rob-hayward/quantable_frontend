@@ -1,0 +1,71 @@
+/* src/components/Quantable/QuantablePairDetailPage.css */
+.page-title {
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.quantable-pair-detail-container {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 20px;
+    border: var(--border-solid-e0);
+    border-radius: var(--border-radius-10);
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+.quantable-pair-header {
+    margin-bottom: 20px;
+}
+
+.quantable-pair-detail-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.quantable-pair-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.voting-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.vote-data p {
+    margin: 5px 0;
+}
+
+.unit-selector {
+    margin-bottom: 10px;
+}
+
+.new-vote-container {
+    margin-top: 20px;
+}
+
+.new-vote-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.new-vote-form input {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: var(--border-radius-5);
+    border: 1px solid #ccc;
+}
+
+.density-plot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

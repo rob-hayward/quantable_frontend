@@ -1,92 +1,93 @@
 /* src/components/Quantable/QuantableListPage.css */
-
-.page-title-l{
+.page-title-l {
     text-align: center;
     margin-top: -10px;
     margin-bottom: 20px;
 }
 
 .quantable-list-container {
-  padding: 20px;
-  border: var(--border-solid-e0);
-  border-radius: var(--border-radius-10);
-  background-color: var(--color-background);
-  color: var(--color-text);
-  max-width: 960px;
-  margin: 40px auto;
+    padding: 20px;
+    border: var(--border-solid-e0);
+    border-radius: var(--border-radius-10);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    max-width: 960px;
+    margin: 40px auto;
 }
 
 .quantable-item {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  padding: 20px;
-  border: var(--border-solid-e0);
-  border-radius: var(--border-radius-10);
-  background-color: var(--color-background);
-  color: var(--color-text);
-  margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    border: var(--border-solid-e0);
+    border-radius: var(--border-radius-10);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    margin-bottom: 20px;
 }
 
-.quantable-content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.quantable-content,
+.quantable-pair-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .quantable-item h3 {
-  color: #E0E0E0;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s;
+    color: #E0E0E0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
 .quantable-item h3:hover {
-  color: #FFF;
+    color: #FFF;
 }
 
 .quantable-item p {
-  margin: 5px 0;
+    margin: 5px 0;
 }
 
 .sort-selector {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .sort-selector label,
 .sort-selector select {
-  color: var(--color-text);
-  font-size: 1rem;
+    color: var(--color-text);
+    font-size: 1rem;
 }
 
 .sort-selector select {
-  padding: 5px 10px;
-  border-radius: var(--border-radius-10);
-  background-color: var(--color-background-lighter);
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-  cursor: pointer;
+    padding: 5px 10px;
+    border-radius: var(--border-radius-10);
+    background-color: var(--color-background-lighter);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    cursor: pointer;
 }
 
-.density-plot-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.density-plot-container,
+.density-plot-pair-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 768px) {
-  .quantable-item {
-    grid-template-columns: 1fr;
-  }
+    .quantable-item {
+        grid-template-columns: 1fr;
+    }
 
-  .sort-selector {
-    position: static;
-    margin: 10px auto;
-    display: block;
-  }
+    .sort-selector {
+        position: static;
+        margin: 10px auto;
+        display: block;
+    }
 
-  .quantable-list-container {
-    width: 90%;
-    margin: 20px auto;
-  }
+    .quantable-list-container {
+        width: 90%;
+        margin: 20px auto;
+    }
 }

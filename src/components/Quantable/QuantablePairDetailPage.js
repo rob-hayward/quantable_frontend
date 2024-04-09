@@ -48,8 +48,8 @@ const QuantablePairDetailPage = () => {
         setQuantablePair(fetchedQuantablePair);
         const minUserVote = fetchedQuantablePair.min_quantable.user_vote;
         const maxUserVote = fetchedQuantablePair.max_quantable.user_vote;
-        setMinVote(minUserVote);
-        setMaxVote(maxUserVote);
+        setMinVote(minUserVote !== null ? parseFloat(minUserVote) : null);
+        setMaxVote(maxUserVote !== null ? parseFloat(maxUserVote) : null);
         setNewMinVoteValue(minUserVote !== null ? minUserVote : '');
         setNewMaxVoteValue(maxUserVote !== null ? maxUserVote : '');
 
@@ -160,71 +160,81 @@ const QuantablePairDetailPage = () => {
 
   console.log("Rendering QuantablePairDetailPage");
 
+
   return (
     <div>
       <h2 className="page-title">Quantable Pair Detail Page</h2>
       <div className="quantable-pair-detail-container">
         {quantablePair && (
           <div className="quantable-pair-header">
-            <h4>Minimum Question: {quantablePair.min_quantable.question}</h4>
-            <h4>Maximum Question: {quantablePair.max_quantable.question}</h4>
             <p>Created by: {quantablePair.min_quantable.creator_name}</p>
           </div>
         )}
 
         <div className="quantable-pair-detail-content">
           <div className="quantable-pair-info">
-            <div className="voting-section">
-              {quantablePair && (
-                <div className="vote-data">
-                  <p>Total Min Votes: {quantablePair.min_quantable.vote_count}</p>
-                  <p>Your Current Min Vote: {minVote !== null ? minVote : 'N/A'} {selectedUnit}</p>
-                  <p>Total Max Votes: {quantablePair.max_quantable.vote_count}</p>
-                  <p>Your Current Max Vote: {maxVote !== null ? maxVote : 'N/A'} {selectedUnit}</p>
-                </div>
-              )}
-
-              {quantablePair && (
-                  <div className="unit-selector">
-                    <label htmlFor="unit">Select Unit:</label>
-                    <select id="unit" value={selectedUnit} onChange={handleUnitChange}>
-                      {units.map((unit, index) => (
-                          <option key={`${unit.value}-${index}`} value={unit.value}>
-                            {unit.name}
-                          </option>
-                      ))}
-                    </select>
+            {quantablePair && (
+              <>
+                <div className="min-question-section">
+                  <h4>Minimum Question: {quantablePair.min_quantable.question}</h4>
+                  <div className="vote-data">
+                    <p>Total Min Votes: {quantablePair.min_quantable.vote_count}</p>
+                    <p>Your Current Min Vote: {minVote !== null ? minVote : 'N/A'} {selectedUnit}</p>
                   </div>
-              )}
+                  <div className="new-vote-container">
+                    <form onSubmit={handleMinVoteSubmit} className="new-vote-form">
+                      <input
+                        type="number"
+                        value={newMinVoteValue}
+                        onChange={handleMinVoteChange}
+                        placeholder="Enter your min vote value"
+                        required
+                      />
+                      <button className="button vote" type="submit">
+                        {minVote ? 'Update Min Vote' : 'Submit Min Vote'}
+                      </button>
+                    </form>
+                  </div>
+                </div>
 
-              <div className="new-vote-container">
-                <form onSubmit={handleMinVoteSubmit} className="new-vote-form">
-                  <input
-                      type="number"
-                      value={newMinVoteValue}
-                    onChange={handleMinVoteChange}
-                    placeholder="Enter your min vote value"
-                    required
-                  />
-                  <button className="button vote" type="submit">
-                    {minVote ? 'Update Min Vote' : 'Submit Min Vote'}
-                  </button>
-                </form>
-                <form onSubmit={handleMaxVoteSubmit} className="new-vote-form">
-                  <input
-                    type="number"
-                    value={newMaxVoteValue}
-                    onChange={handleMaxVoteChange}
-                    placeholder="Enter your max vote value"
-                    required
-                  />
-                  <button className="button vote" type="submit">
-                    {maxVote ? 'Update Max Vote' : 'Submit Max Vote'}
-                  </button>
-                </form>
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
+                <div className="max-question-section">
+                  <h4>Maximum Question: {quantablePair.max_quantable.question}</h4>
+                  <div className="vote-data">
+                    <p>Total Max Votes: {quantablePair.max_quantable.vote_count}</p>
+                    <p>Your Current Max Vote: {maxVote !== null ? maxVote : 'N/A'} {selectedUnit}</p>
+                  </div>
+                  <div className="new-vote-container">
+                    <form onSubmit={handleMaxVoteSubmit} className="new-vote-form">
+                      <input
+                        type="number"
+                        value={newMaxVoteValue}
+                        onChange={handleMaxVoteChange}
+                        placeholder="Enter your max vote value"
+                        required
+                      />
+                      <button className="button vote" type="submit">
+                        {maxVote ? 'Update Max Vote' : 'Submit Max Vote'}
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {quantablePair && (
+              <div className="unit-selector">
+                <label htmlFor="unit">Select Unit:</label>
+                <select id="unit" value={selectedUnit} onChange={handleUnitChange}>
+                  {units.map((unit, index) => (
+                    <option key={`${unit.value}-${index}`} value={unit.value}>
+                      {unit.name}
+                    </option>
+                  ))}
+                </select>
               </div>
-            </div>
+            )}
+
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
 
           {quantablePair && (
@@ -238,8 +248,8 @@ const QuantablePairDetailPage = () => {
                 maxStdDev={quantablePair.max_quantable.vote_stddev}
                 xLabel={`${quantablePair.min_quantable.category} (${selectedUnit})`}
                 yLabel="Probability Density"
-                minUserVote={minVote !== null ? parseFloat(minVote) : null}
-                maxUserVote={maxVote !== null ? parseFloat(maxVote) : null}
+                minUserVote={minVote}
+                maxUserVote={maxVote}
               />
             </div>
           )}
