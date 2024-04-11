@@ -16,9 +16,9 @@
 }
 
 .quantable-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
     border: var(--border-solid-e0);
     border-radius: var(--border-radius-10);
@@ -29,9 +29,8 @@
 
 .quantable-content,
 .quantable-pair-content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex: 1;
+    margin-right: 40px; /* Increased the margin-right to create more space */
 }
 
 .quantable-item h3 {
@@ -46,7 +45,7 @@
 }
 
 .quantable-item p {
-    margin: 5px 0;
+    margin: 5px 0 15px; /* Added margin-bottom to create space between creator and button */
 }
 
 .sort-selector {
@@ -70,14 +69,19 @@
 
 .density-plot-container,
 .density-plot-pair-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 1;
+    margin-left: auto; /* Added margin-left: auto to push the chart to the right */
 }
 
 @media (max-width: 768px) {
     .quantable-item {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .quantable-content,
+    .quantable-pair-content {
+        margin-right: 0;
+        margin-bottom: 20px;
     }
 
     .sort-selector {

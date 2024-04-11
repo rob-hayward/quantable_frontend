@@ -46,13 +46,15 @@ const QuantableListPage = () => {
             {quantables.map((quantable) => (
                 <div key={quantable.pair_id || quantable.id} className="quantable-item">
                     {quantable.type === 'pair' ? (
-                        <div className="quantable-pair-content">
-                            <Link to={`/quantable-pairs/${quantable.pair_id}`}>
-                                <h3>Minimum Question: {quantable.min_quantable.question}</h3>
-                                <h3>Maximum Question: {quantable.max_quantable.question}</h3>
-                            </Link>
-                            <p>By: {quantable.min_quantable.creator_name}</p>
-                            <Link to={`/quantable-pairs/${quantable.pair_id}`} className="button">View Pair Details</Link>
+                        <>
+                            <div className="quantable-pair-content">
+                                <Link to={`/quantable-pairs/${quantable.pair_id}`}>
+                                    <h5>Minimum Question: {quantable.min_quantable.question}</h5>
+                                    <h5>Maximum Question: {quantable.max_quantable.question}</h5>
+                                </Link>
+                                <p>By: {quantable.min_quantable.creator_name}</p>
+                                <Link to={`/quantable-pairs/${quantable.pair_id}`} className="button">View Pair Details</Link>
+                            </div>
                             <div className="density-plot-pair-container">
                                 <DensityPlotPair
                                     minData={quantable.min_quantable.freedman_diaconis_bins}
@@ -67,14 +69,16 @@ const QuantableListPage = () => {
                                     maxUserVote={quantable.max_quantable.user_vote !== null ? parseFloat(quantable.max_quantable.user_vote) : null}
                                 />
                             </div>
-                        </div>
+                        </>
                     ) : (
+                        <>
                         <div className="quantable-content">
-                            <Link to={`/quantables/${quantable.id}`}>
-                                <h3>Question: {quantable.question}</h3>
-                            </Link>
-                            <p>By: {quantable.creator_name}</p>
-                            <Link to={`/quantables/${quantable.id}`} className="button">View Details</Link>
+                                <Link to={`/quantables/${quantable.id}`}>
+                                    <h5>Question: {quantable.question}</h5>
+                                </Link>
+                                <p>By: {quantable.creator_name}</p>
+                                <Link to={`/quantables/${quantable.id}`} className="button">View Details</Link>
+                            </div>
                             <div className="density-plot-container">
                                 <DensityPlot
                                     data={quantable.freedman_diaconis_bins}
@@ -85,7 +89,7 @@ const QuantableListPage = () => {
                                     userVote={quantable.user_vote !== null ? parseFloat(quantable.user_vote) : null}
                                 />
                             </div>
-                        </div>
+                        </>
                     )}
                 </div>
             ))}

@@ -39,8 +39,9 @@ const QuantablePairDetailPage = () => {
     }
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
+ useEffect(() => {
+  const fetchData = async () => {
+    if (quantablePair && quantablePair.min_quantable.preferred_unit !== selectedUnit) {
       console.log("Fetching quantable pair...");
       const fetchedQuantablePair = await fetchQuantablePair(selectedUnit);
       console.log("Fetched quantable pair:", fetchedQuantablePair);
@@ -61,36 +62,53 @@ const QuantablePairDetailPage = () => {
           ),
         ];
         setUnits(filteredUnits.map((unit) => ({ value: unit, name: unit })));
-        setSelectedUnit(fetchedQuantablePair.min_quantable.default_unit);
+        setSelectedUnit(fetchedQuantablePair.min_quantable.preferred_unit || fetchedQuantablePair.min_quantable.default_unit);
       }
-    };
-    fetchData();
-  }, [pairId, fetchQuantablePair, fetchUnits, selectedUnit]);
-
-  useEffect(() => {
-    const updatePreferredUnit = async () => {
-      try {
-        await axiosInstance.patch(`/preferences/update/`, {
-          quantable_id: quantablePair.min_quantable.id,
-          preferred_unit: selectedUnit,
-        });
-        await axiosInstance.patch(`/preferences/update/`, {
-          quantable_id: quantablePair.max_quantable.id,
-          preferred_unit: selectedUnit,
-        });
-      } catch (error) {
-        console.error("Error updating unit preference:", error);
-      }
-    };
-
-    if (quantablePair) {
-      updatePreferredUnit();
     }
-  }, [selectedUnit, quantablePair]);
-
-  const handleUnitChange = (e) => {
-    setSelectedUnit(e.target.value);
   };
+
+  fetchData();
+}, [pairId, fetchUnits, selectedUnit, fetchQuantablePair, quantablePair]);
+
+useEffect(() => {
+  const updatePreferredUnit = async () => {
+    try {
+      await axiosInstance.patch(`/preferences/update/`, {
+        quantable_id: quantablePair.min_quantable.id,
+        preferred_unit: selectedUnit,
+      });
+      await axiosInstance.patch(`/preferences/update/`, {
+        quantable_id: quantablePair.max_quantable.id,
+        preferred_unit: selectedUnit,
+      });
+      console.log("Preferred unit updated:", selectedUnit);
+    } catch (error) {
+      console.error("Error updating unit preference:", error);
+    }
+  };
+
+  if (quantablePair) {
+    updatePreferredUnit();
+  }
+}, [selectedUnit, quantablePair]);
+
+  const handleUnitChange = async (e) => {
+  const newUnit = e.target.value;
+  setSelectedUnit(newUnit);
+
+  try {
+    await axiosInstance.patch(`/preferences/update/`, {
+      quantable_id: quantablePair.min_quantable.id,
+      preferred_unit: newUnit,
+    });
+    await axiosInstance.patch(`/preferences/update/`, {
+      quantable_id: quantablePair.max_quantable.id,
+      preferred_unit: newUnit,
+    });
+  } catch (error) {
+    console.error("Error updating unit preference:", error);
+  }
+};
 
   const handleMinVoteChange = (e) => {
     setNewMinVoteValue(e.target.value);
@@ -114,12 +132,14 @@ const QuantablePairDetailPage = () => {
           value: parsedValue,
           preferred_unit: selectedUnit,
         });
+        setMinVote(parsedValue); // Update minVote state immediately
       } else {
         await axiosInstance.post(`/votes/create/`, {
           quantable: quantablePair.min_quantable.id,
           value: parsedValue,
           preferred_unit: selectedUnit,
         });
+        setMinVote(parsedValue); // Update minVote state immediately
       }
       await fetchQuantablePair(selectedUnit);
       setNewMinVoteValue('');
@@ -143,12 +163,14 @@ const QuantablePairDetailPage = () => {
           value: parsedValue,
           preferred_unit: selectedUnit,
         });
+        setMaxVote(parsedValue); // Update maxVote state immediately
       } else {
         await axiosInstance.post(`/votes/create/`, {
           quantable: quantablePair.max_quantable.id,
           value: parsedValue,
           preferred_unit: selectedUnit,
         });
+        setMaxVote(parsedValue); // Update maxVote state immediately
       }
       await fetchQuantablePair(selectedUnit);
       setNewMaxVoteValue('');
@@ -157,9 +179,6 @@ const QuantablePairDetailPage = () => {
       setErrorMessage('Failed to submit/update max vote. Please try again.');
     }
   };
-
-  console.log("Rendering QuantablePairDetailPage");
-
 
   return (
     <div>
@@ -187,11 +206,11 @@ const QuantablePairDetailPage = () => {
                         type="number"
                         value={newMinVoteValue}
                         onChange={handleMinVoteChange}
-                        placeholder="Enter your min vote value"
+                        placeholder="Enter your min value"
                         required
                       />
                       <button className="button vote" type="submit">
-                        {minVote ? 'Update Min Vote' : 'Submit Min Vote'}
+                        {minVote ? 'Update Vote' : 'Submit Vote'}
                       </button>
                     </form>
                   </div>
@@ -209,11 +228,11 @@ const QuantablePairDetailPage = () => {
                         type="number"
                         value={newMaxVoteValue}
                         onChange={handleMaxVoteChange}
-                        placeholder="Enter your max vote value"
+                        placeholder="Enter your max value"
                         required
                       />
                       <button className="button vote" type="submit">
-                        {maxVote ? 'Update Max Vote' : 'Submit Max Vote'}
+                        {maxVote ? 'Update Vote' : 'Submit Vote'}
                       </button>
                     </form>
                   </div>
