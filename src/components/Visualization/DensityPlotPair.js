@@ -89,7 +89,7 @@ const DensityPlotPair = ({
 
       svg.append('text')
         .attr('x', x(minMean))
-        .attr('y', y(yMax) - 10)
+        .attr('y', y(yMax) - 5)
         .attr('text-anchor', 'middle')
         .attr('fill', 'red')
         .text('Min Mean');
@@ -106,7 +106,7 @@ const DensityPlotPair = ({
 
       svg.append('text')
         .attr('x', x(maxMean))
-        .attr('y', y(yMax) - 10)
+        .attr('y', y(yMax) - 5)
         .attr('text-anchor', 'middle')
         .attr('fill', 'red')
         .text('Max Mean');
@@ -114,6 +114,8 @@ const DensityPlotPair = ({
       // Add standard deviation markers and labels for min data
       [-minStdDev, minStdDev].forEach((sd, index) => {
         const label = index === 0 ? '-1σ (Min)' : '+1σ (Min)';
+        const angle = index === 0 ? -45 : 45;
+
         svg.append('line')
           .attr('x1', x(minMean + sd))
           .attr('y1', y(0))
@@ -124,9 +126,8 @@ const DensityPlotPair = ({
           .attr('stroke-dasharray', '3,3');
 
         svg.append('text')
-          .attr('x', x(minMean + sd))
-          .attr('y', y(yMax) - 10)
-          .attr('text-anchor', 'middle')
+          .attr('transform', `translate(${x(minMean + sd)},${y(yMax) + 10})rotate(${angle})`)
+          .attr('text-anchor', index === 0 ? 'end' : 'start')
           .attr('fill', 'green')
           .text(label);
       });
@@ -134,6 +135,8 @@ const DensityPlotPair = ({
       // Add standard deviation markers and labels for max data
       [-maxStdDev, maxStdDev].forEach((sd, index) => {
         const label = index === 0 ? '-1σ (Max)' : '+1σ (Max)';
+        const angle = index === 0 ? -45 : 45;
+
         svg.append('line')
           .attr('x1', x(maxMean + sd))
           .attr('y1', y(0))
@@ -144,9 +147,8 @@ const DensityPlotPair = ({
           .attr('stroke-dasharray', '3,3');
 
         svg.append('text')
-          .attr('x', x(maxMean + sd))
-          .attr('y', y(yMax) - 10)
-          .attr('text-anchor', 'middle')
+          .attr('transform', `translate(${x(maxMean + sd)},${y(yMax) + 10})rotate(${angle})`)
+          .attr('text-anchor', index === 0 ? 'end' : 'start')
           .attr('fill', 'green')
           .text(label);
       });

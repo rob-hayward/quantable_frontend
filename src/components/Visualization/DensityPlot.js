@@ -71,7 +71,7 @@ const DensityPlot = ({ data, mean, stdDev, xLabel, yLabel, userVote }) => {
 
       svg.append('text')
         .attr('x', x(mean))
-        .attr('y', y(yMax) - 10)
+        .attr('y', y(yMax) - 5)
         .attr('text-anchor', 'middle')
         .attr('fill', 'red')
         .text('Mean');
@@ -79,6 +79,8 @@ const DensityPlot = ({ data, mean, stdDev, xLabel, yLabel, userVote }) => {
       // Add standard deviation markers and labels
       [-stdDev, stdDev].forEach((sd, index) => {
         const label = index === 0 ? '-1σ' : '+1σ';
+        const angle = index === 0 ? -45 : 45;
+
         svg.append('line')
           .attr('x1', x(mean + sd))
           .attr('y1', y(0))
@@ -89,9 +91,8 @@ const DensityPlot = ({ data, mean, stdDev, xLabel, yLabel, userVote }) => {
           .attr('stroke-dasharray', '3,3');
 
         svg.append('text')
-          .attr('x', x(mean + sd))
-          .attr('y', y(yMax) - 10)
-          .attr('text-anchor', 'middle')
+          .attr('transform', `translate(${x(mean + sd)},${y(yMax) + 10})rotate(${angle})`)
+          .attr('text-anchor', index === 0 ? 'end' : 'start')
           .attr('fill', 'green')
           .text(label);
       });
