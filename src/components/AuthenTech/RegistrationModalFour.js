@@ -33,7 +33,7 @@ const ModalFour = ({ onRegistrationComplete }) => {
         <div className="modalContainerFour">
             <img src={logo} alt="Discussable Logo" className="logo"/>
             <p className="paragraphFour">
-                Complete your Discussable registration by using fingerprint or face scan on your device with WebAuthn.
+                Complete your Quantable registration by using fingerprint or face scan on your device with WebAuthn.
             </p>
             <button onClick={handleWebAuthnRegister} className="button modal-button">Register with WebAuthn</button>
             {registrationError && <p className="errorFour">Error: {registrationError}</p>}
